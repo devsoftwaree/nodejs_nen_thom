@@ -231,7 +231,10 @@ body {
   font-family: var(--sub-font); }
 
 #footer .footer__socials .contact-info p {
-  font-family: var(--sub-font); }
+  font-family: var(--sub-font);
+  margin-top: 0;
+  margin-bottom: 16px;
+  line-height: 32px; }
 
 #footer .footer__socials .contact-info a {
   text-decoration: none;

@@ -1,0 +1,101 @@
+<!-- Navbar -->
+<nav id="navbar">
+    <a class="first" href="/">Trang chủ</a>
+    <div class="middle-group">
+        <a href="/nen-yen">Nến thơm Yên</a>
+        <a href="/nen-nhien">Nến thơm Nhiên</a>
+        <a class="mark-current-page" href="#">Nến thơm Chạm</a>
+    </div>
+    <a class="last" href="/blog">Blog</a>
+</nav>
+
+<!-- Leaderboard -->
+<section id="leaderboard">
+    <object class="leaderboard__content" data="./assets/image/Leaderboard.svg" type="image/svg+xml" width="100%"
+        height="auto"></object>
+</section>
+
+<!-- Products -->
+<section id="products">
+    <div id="hy" class="products-card">
+        <div class="products-card__image">
+            <img src="./assets/image/BST_Cham/Hỷ.png" alt="Hỷ">
+        </div>
+        <div class="products-card__buy">
+            <h2>Giá: 189.000đ</h2>
+            <button class="buy-btn" type="button"><i class="ti-shopping-cart"></i></button>
+        </div>
+    </div>
+    <div id="ngot" class="products-card">
+        <div class="products-card__image">
+            <img src="./assets/image/BST_Cham/Ngọt.png" alt="Ngọt">
+        </div>
+        <div class="products-card__buy">
+            <h2>Giá: 199.000đ</h2>
+            <button class="buy-btn" type="button"><i class="ti-shopping-cart"></i></button>
+        </div>
+    </div>
+    <div id="yeu-thuong" class="products-card">
+        <div class="products-card__image">
+            <img src="./assets/image/BST_Cham/Yêu-Thương.png" alt="Yêu Thương">
+        </div>
+        <div class="products-card__buy">
+            <h2>Giá: 189.000đ</h2>
+            <button class="buy-btn" type="button"><i class="ti-shopping-cart"></i></button>
+        </div>
+    </div>
+</section>
+
+<!-- Modal -->
+<div class="modal js-modal">
+    <div id="message"></div>
+    <div class="modal-container js-modal-container">
+        <div class="close-button js-close-button">
+            <i class="close-icon ti-close"></i>
+        </div>
+
+        <!-- Modal Heading -->
+        <div class="modal-heading">
+            <i class="ti-bag"></i>
+            Mua sản phẩm
+        </div>
+        <!-- Modal body -->
+        <div id="product-infomation" class="modal-body show-info">
+
+        </div>
+
+        <form id="modal-form" class="modal-body" onsubmit="return checkBeforeBuy(event)">
+            <!-- Input Quatity -->
+            <label for="modal-ip-quatity" class="modal-label">
+                <i class="shoping-icon ti-shopping-cart"></i>
+                Số lượng sản phẩm
+            </label>
+            <input type="number" class="modal-input" placeholder="Nhập số lượng..." id="modal-ip-quatity">
+
+            <!-- Input name -->
+            <label for="modal-ip-username" class="modal-label">
+                <i class="user-icon ti-user"></i>
+                Tên khách hàng
+            </label>
+            <input type="text" class="modal-input" placeholder="Nhập họ và tên..." id="modal-ip-username">
+
+            <!-- Input phone -->
+            <label for="modal-ip-userphone" class="modal-label">
+                <i class="user-icon ti-mobile"></i>
+                Số điện thoại
+            </label>
+            <input type="tel" class="modal-input" placeholder="Nhập số điện thoại..." id="modal-ip-userphone">
+
+            <!-- Input address -->
+            <label for="modal-ip-address" class="modal-label">
+                <i class="user-icon ti-location-pin"></i>
+                Địa chỉ
+            </label>
+            <input type="text" class="modal-input" placeholder="Nhập địa chỉ..." id="modal-ip-address">
+
+            <!-- Button corfirm -->
+            <input type="submit" id="corfirm" value="ĐẶT HÀNG" onclick="checkBeforeBuy(event)">
+            </input>
+        </form>
+    </div>
+</div>

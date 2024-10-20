@@ -1,0 +1,59 @@
+<!-- Navbar -->
+<nav id="navbar">
+    <a href="/">Trang chủ</a>
+    <div class="middle-group">
+        <a href="/nen-yen">Nến thơm Yên</a>
+        <a href="/nen-nhien">Nến thơm Nhiên</a>
+        <a href="/nen-cham">Nến thơm Chạm</a>
+    </div>
+    <a class="last" href="/blog">Blog</a>
+</nav>
+<!-- Section: Form -->
+<section id="contact">
+    <!-- Mesage --> 
+    <div id="message"></div>
+
+    <div class="contact-info-form">
+        <div class="contact-info__email contact-container1">
+            <div class="contact-container1__left">
+                <i class="ti-email"></i>
+                <p>Địa chỉ email:</p>
+            </div>
+            <div class="separator"></div>
+            <a href="mailto:info@nenthommoc.vn">info@nenthommoc.vn</a>
+        </div>
+        <div class="contact-info__phone contact-container1">
+            <div class="contact-container1__left">
+                <i class="ti-mobile"></i>
+                <p>Số điện thoại:</p>
+            </div>
+            <div class="separator"></div>
+            <a href="tel:+840123456789">0123 456 789</a>
+        </div>
+    </div>
+    <div class="contact-container">
+        <img src="./assets/image/LOGO 2.svg" alt="Contact me!">
+        <div id="contact-form">
+            <form id="form" method="POST" onsubmit="return checkInfoRegist()">
+                <input id="user_name" class="get-info" name="user-name" type="text"
+                    placeholder="Nhập họ và tên của bạn"></input>
+                <input id="user_phone" class="get-info" name="user-phone" type="text"
+                    placeholder="Nhập số điện thoại của bạn"></input>
+                <input id="user_email" class="get-info" name="user-email" type="email"
+                    placeholder="Nhập email của bạn"></input>
+                <textarea id="user_address" class="get-info textarea-field" name="user-address" type="text"
+                    placeholder="Nhập địa chỉ của bạn"></textarea>
+                <select name="product-selected" id="user_select" class="get-info select-tab">
+                    <option value="" disabled selected hidden>Chọn loại sản phẩm</option>
+                    <option value="bst_yen">BST Yên - Nến thơm An Yên, Nhàn, Thiền</option>
+                    <option value="bst_nhien">BST Nhiên - Nến thơm Cam Thảo, Cà Phê, Quế Hồi</option>
+                    <option value="bst-cham">BST Chạm - Nến thơm Hỷ, Ngọt, Yêu Thương</option>
+                </select>
+                <input id="product_quatity" class="get-info" name="product-quatity" type="number"
+                    placeholder="Nhập số lượng"></input>
+                <input id="send-message-button" class="submit-button" type="submit"
+                    value="Đặt mua">
+            </form>
+        </div>
+    </div>
+</section>

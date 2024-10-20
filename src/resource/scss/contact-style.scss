@@ -15,14 +15,15 @@ body {
 #contact {
     margin-bottom: 40px;
 }
-.contact-info {
+
+#contact .contact-info-form {
     margin-top: 40px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
 
-.contact-info .contact-container1 {
+#contact .contact-info-form .contact-container1 {
     display: flex;
     justify-content: space-between;
     background-color: #f5f5f5;
@@ -32,11 +33,12 @@ body {
     min-width: 340px;
 }
 
-.contact-info .contact-container1 .contact-container1__left {
+#contact .contact-info-form .contact-container1 .contact-container1__left {
     display: flex;
     padding: 0 16px;
 }
-.contact-info .contact-container1 .contact-container1__left i {
+
+#contact .contact-info-form .contact-container1 .contact-container1__left i {
     padding: 16px;
     margin-right: 12px;
     border-radius: 50%;
@@ -47,17 +49,17 @@ body {
     max-height: fit-content;
 }
 
-.contact-info .contact-container1 .contact-container1__left p {
+#contact .contact-info-form .contact-container1 .contact-container1__left p {
     font-weight: 800;
     align-self: center;
 }
 
-.contact-info .contact-container1 .separator {
+#contact .contact-info-form .contact-container1 .separator {
     border: 1px solid #029E9D;
     max-height: 80%;
 }
 
-.contact-info .contact-container1 a {
+#contact .contact-info-form .contact-container1 a {
     text-decoration: none;
     color: #8e724b;
     align-self: center;
@@ -65,18 +67,18 @@ body {
     text-align: right;
 }
 
-.contact-info .contact-container1 p {
+#contact .contact-info-form .contact-container1 p {
     color: #8e724b;
 }
 
-.contact-container {
+#contact .contact-container {
     display: flex;
     justify-content: center;
     flex-direction: row;
     margin-top: 40px;
 }
 
-.contact-container img {
+#contact .contact-container img {
     min-width: 400px;
     height: auto;
 }

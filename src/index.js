@@ -4,10 +4,10 @@ const morgan = require('morgan');
 const { engine: handlebars } = require('express-handlebars');
 
 // Khai báo database
-const db = require('./config/db')
+// const db = require('./config/db')
 
-// Connect to db 
-db.connect()
+// // Connect to db 
+// db.connect()
 
 // Express library
 const app = express();
@@ -28,6 +28,9 @@ app.engine(
     'hbs',
     handlebars({
         extname: '.hbs',
+        layoutsDir: path.join(__dirname, 'resource/views/layouts'),
+        defaultLayout: 'main.hbs', // Sử dụng tên tệp mới
+        partialsDir: path.join(__dirname, 'resource/views/partials')
     }),
 );
 app.set('view engine', 'hbs');

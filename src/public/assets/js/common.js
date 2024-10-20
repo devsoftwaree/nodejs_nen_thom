@@ -1,7 +1,7 @@
 
 // Navigate to contact - Dẫn đến trang contact
 function navigateToContact() {
-    window.location.href = './contact.html'; 
+    window.location.href = '/contact'; 
 }
 
 // Toast function

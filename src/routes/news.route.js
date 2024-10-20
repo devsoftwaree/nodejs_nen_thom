@@ -1,4 +1,4 @@
-// Bốc tách route
+// Bốc tách router
 var express = require('express')
 
 var router = express.Router()
