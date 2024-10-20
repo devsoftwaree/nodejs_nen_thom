@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+		integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+	<style>
+		body {
+			background-color: #F2E9E1;
+		}
+
+		.list-group-horizontal {
+			display: flex;
+			flex-direction: row;
+			align-items: stretch;
+			justify-content: space-between;
+		}
+
+		.list-group-item {
+			flex: 1 1 auto;
+			/* Đảm bảo các phần tử chia đều không gian */
+			padding: 10px;
+			box-sizing: border-box;
+			/* Đảm bảo padding và border được tính vào chiều rộng và chiều cao */
+			border: 1px solid #ddd;
+			justify-content: center;
+			text-align: center;
+			/* Đặt border cho dễ nhìn */
+			display: flex;
+			align-items: center;
+		}
+
+		.list-group-item:nth-child(n+1) {
+			flex-basis: 12%;
+			/* Đặt chiều rộng mỗi cột, có thể điều chỉnh theo nhu cầu */
+		}
+
+		@media (max-width: 768px) {
+			.list-group-horizontal {
+				flex-direction: column;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<nav id="navbar">
+		<a class="first" href="/">Trang chủ</a>
+		<div class="middle-group">
+			<a href="/nen-yen">Nến thơm Yên</a>
+			<a href="/nen-nhien">Nến thơm Nhiên</a>
+			<a href="/nen-cham">Nến thơm Chạm</a>
+		</div>
+		<a class="" href="#">Blog</a>
+	</nav>
+	<section style="margin: 80px 40px">
+		<h3 style="color: #8e724b">Thông tin khách hàng đã đặt mua BST</h3>
+
+		<ul class="list-group list-group-horizontal">
+			<li class="list-group-item">STT</li>
+			<li class="list-group-item">Tên khách hàng</li>
+			<li class="list-group-item">Số điện thoại</li>
+			<li class="list-group-item">Email</li>
+			<li class="list-group-item">Địa chỉ</li>
+			<li class="list-group-item">Sản phẩm đã chọn</li>
+			<li class="list-group-item">Số lượng</li>
+			<li class="list-group-item">Thời gian đặt hàng</li>
+		</ul>
+
+		{{#each RegistCollectHandled}}
+		<ul class="list-group list-group-horizontal">
+			<li class="list-group-item">{{ counter @index }}</li>
+			<li class="list-group-item">{{ this.name }}</li>
+			<li class="list-group-item">{{ this.phone }}</li>
+			<li class="list-group-item">{{ this.email }}</li>
+			<li class="list-group-item">{{ this.address }}</li>
+			<li class="list-group-item">{{ this.productSelected }}</li>
+			<li class="list-group-item">{{ this.productQuantity }}</li>
+			<li class="list-group-item">{{ this.createAt }}</li>
+		</ul>
+
+		{{/each}}
+
+
+		<h3 style="color: #8e724b; margin-top: 80px">Thông tin khách hàng đã đặt mua sản phẩm (SL ít)</h3>
+
+		<ul class="list-group list-group-horizontal">
+			<li class="list-group-item">STT</li>
+			<li class="list-group-item">Tên khách hàng</li>
+			<li class="list-group-item">Số điện thoại</li>
+			<li class="list-group-item">Địa chỉ</li>
+			<li class="list-group-item">Sản phẩm đã chọn</li>
+			<li class="list-group-item">Số lượng</li>
+			<li class="list-group-item">Thời gian đặt hàng</li>
+		</ul>
+
+		{{#each RegistProductHandled}}
+		<ul class="list-group list-group-horizontal">
+			<li class="list-group-item">{{ counter @index }}</li>
+			<li class="list-group-item">{{ this.name }}</li>
+			<li class="list-group-item">{{ this.phone }}</li>
+			<li class="list-group-item">{{ this.address }}</li>
+			<li class="list-group-item">{{ this.productSelected }}</li>
+			<li class="list-group-item">{{ this.productQuantity }}</li>
+			<li class="list-group-item">{{ this.createAt }}</li>
+		</ul>
+
+		{{/each}}
+
+		
+
+		<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+			integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+			crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+			crossorigin="anonymous"></script>
+	</section>
+</body>
+
+</html>

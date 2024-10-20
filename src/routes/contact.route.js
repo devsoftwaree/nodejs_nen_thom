@@ -4,6 +4,7 @@ var router = express.Router()
 
 const contactController = require('../app/controllers/ContactController')
 
-router.use('/', contactController.index)
+router.post('/send', contactController.insertDB)
+router.get('/', contactController.index)
  
 module.exports = router

@@ -6,7 +6,7 @@ var router = express.Router()
 const blogController = require('../app/controllers/BlogController')
 
 // Slug là một parameter bất kì
-router.use('/:slug', blogController.slug)
-router.use('/', blogController.index)
+router.get('/:slug', blogController.slug)
+router.get('/', blogController.index)
  
 module.exports = router

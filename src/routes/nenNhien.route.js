@@ -6,7 +6,7 @@ var router = express.Router()
 const NhienController = require('../app/controllers/NenNhienController')
 
 // Slug là một parameter bất kì
-router.use('/:slug', NhienController.slug)
-router.use('/', NhienController.index)
+router.get('/:slug', NhienController.slug)
+router.get('/', NhienController.index)
  
 module.exports = router
