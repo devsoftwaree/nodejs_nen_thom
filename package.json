@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "main": "src/index.js",
   "scripts": {
+    "beautiful": "lint-staged",
     "start": "nodemon --inspect src/index.js",
-    "watch": "node-sass --watch src/resource/scss/ --output src/public/css", 
+    "watch": "node-sass --watch src/resource/scss/ --output src/public/css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,13 +23,24 @@
   },
   "homepage": "https://github.com/devsoftwaree/nodejs_nen_thom#readme",
   "description": "",
+  "lint-staged": {
+    "src/**/*.{js,json,scss}": "prettier --write --tab-width 4 --single-quote --trailing-comma all"
+  },
+  "hooks": {
+    "pre-commit": "lint-staged"
+  },
   "dependencies": {
     "express": "^4.21.1",
-    "express-handlebars": "^8.0.1"
+    "express-handlebars": "^8.0.1",
+    "mongodb": "^6.9.0",
+    "mongoose": "^8.7.2"
   },
   "devDependencies": {
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
     "morgan": "^1.10.0",
     "node-sass": "^9.0.0",
-    "nodemon": "^3.1.7"
+    "nodemon": "^3.1.7",
+    "prettier": "3.3.3"
   }
 }
