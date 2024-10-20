@@ -5,7 +5,7 @@ class SiteController {
 
     // [GET] /home
     async index(req, res) {
-
+        res.render('home')
         // NOTE: EXAMPLE
         // try {
         //     const instance = new RegistCollectModel()
