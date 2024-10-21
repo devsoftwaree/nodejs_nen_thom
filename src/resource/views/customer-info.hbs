@@ -11,24 +11,23 @@
 		body {
 			background-color: #F2E9E1;
 		}
-
+	
 		.list-group-horizontal {
 			display: flex;
 			flex-direction: row;
+			flex-wrap: nowrap;
 			align-items: stretch;
 			justify-content: space-between;
 		}
 
 		.list-group-item {
-			flex: 1 1 auto;
 			/* Đảm bảo các phần tử chia đều không gian */
+			flex: 1 1 auto;
 			padding: 10px;
 			box-sizing: border-box;
-			/* Đảm bảo padding và border được tính vào chiều rộng và chiều cao */
 			border: 1px solid #ddd;
 			justify-content: center;
 			text-align: center;
-			/* Đặt border cho dễ nhìn */
 			display: flex;
 			align-items: center;
 		}
@@ -38,10 +37,8 @@
 			/* Đặt chiều rộng mỗi cột, có thể điều chỉnh theo nhu cầu */
 		}
 
-		@media (max-width: 768px) {
-			.list-group-horizontal {
-				flex-direction: column;
-			}
+		.list-group-item:first-child {
+			flex-basis: 5%;
 		}
 	</style>
 </head>
@@ -50,13 +47,13 @@
 	<nav id="navbar">
 		<a class="first" href="/">Trang chủ</a>
 		<div class="middle-group">
-			<a href="/nen-yen">Nến thơm Yên</a>
-			<a href="/nen-nhien">Nến thơm Nhiên</a>
-			<a href="/nen-cham">Nến thơm Chạm</a>
+			<a href="/product/nen-yen">Nến thơm Yên</a>
+			<a href="/product/nen-nhien">Nến thơm Nhiên</a>
+			<a href="/product/nen-cham">Nến thơm Chạm</a>
 		</div>
-		<a class="" href="#">Blog</a>
+		<a class="last" href="/blog">Blog</a>
 	</nav>
-	<section style="margin: 80px 40px">
+	<section style="margin: 80px 40px; min-width: 1000px">
 		<h3 style="color: #8e724b">Thông tin khách hàng đã đặt mua BST</h3>
 
 		<ul class="list-group list-group-horizontal">

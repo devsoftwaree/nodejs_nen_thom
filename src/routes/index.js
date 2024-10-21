@@ -5,9 +5,10 @@
 
 const contactRouter = require('./contact.route.js');
 const siteRouter = require('./site.js');
-const yenRouter = require('./nenYen.route');
-const chamRouter = require('./nenCham.route');
-const nhienRouter = require('./nenNhien.route');
+// const yenRouter = require('./nenYen.route');
+// const chamRouter = require('./nenCham.route');
+// const nhienRouter = require('./nenNhien.route');
+const productRouter = require('./product.route.js')
 const blogRouter = require('./blog.route.js')
 
 function route(app) {
@@ -26,12 +27,13 @@ function route(app) {
     //     res.render('home');
     // }); ==> rewrite
 
-    app.use('/nen-yen', yenRouter)
-    app.use('/nen-cham', chamRouter)
-    app.use('/nen-nhien', nhienRouter)
     app.use('/blog', blogRouter)
+    app.use('/product', productRouter)
+    app.use('/product', productRouter)
+    app.use('/product', productRouter)
     
     app.use('/', siteRouter)
+    app.use('/:slug', productRouter)
 
 }
 

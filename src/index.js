@@ -8,7 +8,7 @@ const { engine: handlebars } = require('express-handlebars');
 const db = require('./config/db')
 
 // Connect to db 
-db.connect()
+// db.connect()
 
 // Express library
 const app = express();
@@ -16,6 +16,9 @@ const port = 3000;
 
 // Sử dụng middleware để phân tích dữ liệu dạng json
 app.use(express.json());
+
+// Midleware xử lý dữ liệu từ form 
+app.use(express.urlencoded({ extended: true }))
 
 // File index.js tự động nạp nên không cần viết rõ ./routes/index.js
 // Route init

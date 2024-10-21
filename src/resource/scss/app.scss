@@ -249,6 +249,13 @@ body {
 }
 
 /* Footer */
+#line-footer {
+    height: 1.5px;
+    background-color: #8e724b;
+    max-width: 80%;
+    margin: 104px auto 24px auto;
+}
+
 #footer {
     display: flex;
     align-self: center;

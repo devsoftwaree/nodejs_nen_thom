@@ -1,4 +1,4 @@
-const userCollect = require('../models/RegistCollect')
+const RegistCollect = require('../models/RegistCollect')
 
 class ContactController {
     // [GET] /news
@@ -6,12 +6,17 @@ class ContactController {
         res.render('contact');
     }
 
-    
-    insertDB(req, res, next) {
-        
-    }
+    // [POST]: Send data to db
+    send(req, res, next) {
+        const formData = req.body
 
-    
+        const record = new RegistCollect(formData)
+        record.save()
+        .then(() => {
+            res.redirect('/contact')
+        })
+        .catch(next);
+    }
 }
 
 module.exports = new ContactController;
