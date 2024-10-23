@@ -6,7 +6,7 @@
 //     record1.email = 't@gmail.com'
 //     record1.productSelected = 'Nến thơm thượng hạng'
 //     record1.productQuantity = 5
-    
+
 //     await record1.save()
 
 //     res.json(record1);
@@ -17,9 +17,8 @@
 const mongoose = require('mongoose')
 const RegistCollect = require('../models/RegistCollect')
 const RegistProduct = require('../models/RegistProduct')
-
-
-
+const User = require('../models/User')
+const Admin = require('../models/Admin')
 
 class SiteController {
 
@@ -28,6 +27,7 @@ class SiteController {
         res.render('home')
     };
 
+    // [GET] /customer-info
     async showData(req, res, next) {
         try {
             const [RegistCollectHandled, RegistProductHandled] = await Promise.all([
@@ -38,14 +38,57 @@ class SiteController {
                     return RegistProduct.map(item => item.toObject());
                 })
             ]);
-    
+
             res.render('customer-info', { RegistCollectHandled, RegistProductHandled });
         } catch (err) {
             next(err);
         }
     }
-    
-    
+
+    // [GET] /dang-nhap
+    renderLogin(req, res) {
+        res.render('dangNhap')
+    }
+
+    // [POST] /login
+    async login(req, res) {
+        const clientUserName = req.body.username;
+        const clientUserPass = req.body.password;
+
+        try {
+            const resultAdmin = await Admin.findOne({ username: clientUserName }).exec();
+            if (resultAdmin && resultAdmin.password === clientUserPass) {
+                return res.redirect('/customer-info');
+            }
+
+            const resultUser = await User.findOne({ username: clientUserName }).exec();
+            if (resultUser && resultUser.password === clientUserPass) {
+                return res.redirect('/?login=true');
+            }
+
+            res.redirect('/dang-nhap?login=false');
+        } catch (err) {
+            res.status(500).json({ error: err });
+        }
+    }
+
+    // [GET] /dang-nhap
+    renderSignUp(req, res) {
+        res.render('dangKi')
+    }
+
+    // [POST] /dang-ki
+    signUp(req, res, next) {
+        const newUser = new User(req.body)
+        newUser.save()
+            .then(() => {
+                res.redirect('/dang-ki?signup=true')
+            })
+            .catch(next => {
+                res.redirect('/dang-ki?signup=false')
+            });
+    }
+
 }
 
 module.exports = new SiteController;

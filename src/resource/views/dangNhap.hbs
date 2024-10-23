@@ -1,0 +1,55 @@
+<!-- Navbar -->
+<nav id="navbar">
+    <a href="/">Trang chủ</a>
+    <div class="middle-group">
+        <a href="/product/nen-yen">Nến thơm Yên</a>
+        <a href="/product/nen-nhien">Nến thơm Nhiên</a>
+        <a href="/product/nen-cham">Nến thơm Chạm</a>
+    </div>
+    <a class="last" href="/blog">Blog</a>
+</nav>
+
+<!-- Message: Success regist products -->
+<div id="message"></div>
+
+<!-- Form đăng nhập -->
+<div class="login-signup-container">
+    <form id="login-form" method="POST" action="/user-login" onsubmit="return checkBeforeSignUp()" class="formDangKyDangNhap">
+        <h1>Đăng nhập</h1>
+        <div class="input-label">
+            <label for="username">Tên người dùng</label> <br>
+            <input id="username" class="input-field" name="username" type="text"
+                placeholder="Nhập tên của bạn..."></input><br>
+        </div>
+
+        <div class="input-label">
+            <label for="password">Mật khẩu</label> <br>
+            <input id="password" class="input-field" name="password" type="password"
+                placeholder="Nhập mật khẩu..."></input><br>
+        </div>
+
+        <div class="forgot-password">
+            <a href="#">Quên mật khẩu?</a> <br>
+        </div>
+
+        <div class="submit-container">
+            <input id="submit-button" type="submit" value="Đăng nhập">
+        </div>
+
+        <div class="orther-sign-up">
+            <p class="text-decor">Hoặc đăng nhập qua</p>
+
+            <div class="social-icon">
+                <a style="background-color: #0866ff;" href="#"><i class="ti-facebook"></i></a>
+                <a style="background-color: #2EA8EF;" href="#"><i class="ti-twitter-alt"></i></a>
+                <a style="background-color: #EE4134;" href="#"><i class="ti-google none_display_mobile"></i></a>
+            </div>
+        </div>
+
+        <div class="web-sign-up">
+            <p class="text-decor">Hoặc đăng kí</p>
+            <a href="/dang-ki">Đăng kí</a>
+        </div>
+
+    </form>
+</div>

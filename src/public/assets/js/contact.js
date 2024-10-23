@@ -48,7 +48,6 @@ function checkInfoRegist() {
             showErrorToast("Vui lòng nhập đúng số lượng sản phẩm bạn muốn mua.");
 
         else {
-            showSuccessToast("Đặt hàng thành công!", "Cảm ơn bạn đã tin tưởng và sử dụng sản phẩm của chúng tôi!");
             return true;
         }
     } else 

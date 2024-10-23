@@ -13,7 +13,7 @@ class ContactController {
         const record = new RegistCollect(formData)
         record.save()
         .then(() => {
-            res.redirect('/contact')
+            res.redirect('/contact?success=true')
         })
         .catch(next);
     }

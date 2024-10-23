@@ -8,7 +8,7 @@ const { engine: handlebars } = require('express-handlebars');
 const db = require('./config/db')
 
 // Connect to db 
-// db.connect()
+db.connect()
 
 // Express library
 const app = express();
@@ -54,5 +54,3 @@ route(app);
 app.listen(port, () => {
     console.log(`App listening on port ${port}`);
 });
-
-

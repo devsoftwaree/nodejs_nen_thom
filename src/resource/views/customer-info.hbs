@@ -11,34 +11,33 @@
 		body {
 			background-color: #F2E9E1;
 		}
-	
-		.list-group-horizontal {
-			display: flex;
-			flex-direction: row;
-			flex-wrap: nowrap;
-			align-items: stretch;
-			justify-content: space-between;
+
+		table {
+			width: 100%;
+			border-collapse: collapse;
 		}
 
-		.list-group-item {
-			/* Đảm bảo các phần tử chia đều không gian */
-			flex: 1 1 auto;
-			padding: 10px;
-			box-sizing: border-box;
-			border: 1px solid #ddd;
-			justify-content: center;
-			text-align: center;
-			display: flex;
-			align-items: center;
+		th,
+		td {
+			border: 2px solid #ddd;
+			padding: 8px;
+			text-align: left;
 		}
 
-		.list-group-item:nth-child(n+1) {
-			flex-basis: 12%;
-			/* Đặt chiều rộng mỗi cột, có thể điều chỉnh theo nhu cầu */
+		th {
+			background-color: #f2f2f2;
+		}
+		
+		tr {
+			background-color: #ceb798;
 		}
 
-		.list-group-item:first-child {
-			flex-basis: 5%;
+		tr:nth-child(even) {
+			background-color: #f9f9f9;
+		}
+
+		tr:hover {
+			background-color: #f1f1f1;
 		}
 	</style>
 </head>
@@ -56,58 +55,64 @@
 	<section style="margin: 80px 40px; min-width: 1000px">
 		<h3 style="color: #8e724b">Thông tin khách hàng đã đặt mua BST</h3>
 
-		<ul class="list-group list-group-horizontal">
-			<li class="list-group-item">STT</li>
-			<li class="list-group-item">Tên khách hàng</li>
-			<li class="list-group-item">Số điện thoại</li>
-			<li class="list-group-item">Email</li>
-			<li class="list-group-item">Địa chỉ</li>
-			<li class="list-group-item">Sản phẩm đã chọn</li>
-			<li class="list-group-item">Số lượng</li>
-			<li class="list-group-item">Thời gian đặt hàng</li>
-		</ul>
-
-		{{#each RegistCollectHandled}}
-		<ul class="list-group list-group-horizontal">
-			<li class="list-group-item">{{ counter @index }}</li>
-			<li class="list-group-item">{{ this.name }}</li>
-			<li class="list-group-item">{{ this.phone }}</li>
-			<li class="list-group-item">{{ this.email }}</li>
-			<li class="list-group-item">{{ this.address }}</li>
-			<li class="list-group-item">{{ this.productSelected }}</li>
-			<li class="list-group-item">{{ this.productQuantity }}</li>
-			<li class="list-group-item">{{ this.createAt }}</li>
-		</ul>
-
-		{{/each}}
-
+		<table>
+			<thead>
+				<tr>
+					<th>STT</th>
+					<th>Tên khách hàng</th>
+					<th>Số điện thoại</th>
+					<th>Email</th>
+					<th>Địa chỉ</th>
+					<th>Sản phẩm đã chọn</th>
+					<th>Số lượng</th>
+					<th>Thời gian đặt hàng</th>
+				</tr>
+			</thead>
+			<tbody>
+				{{#each RegistCollectHandled}}
+				<tr>
+					<td>{{ counter @index }}</td>
+					<td>{{ this.name }}</td>
+					<td>{{ this.phone }}</td>
+					<td>{{ this.email }}</td>
+					<td>{{ this.address }}</td>
+					<td>{{ this.productSelected }}</td>
+					<td>{{ this.productQuantity }}</td>
+					<td>{{ this.createAt }}</td>
+				</tr>
+				{{/each}}
+			</tbody>
+		</table>
 
 		<h3 style="color: #8e724b; margin-top: 80px">Thông tin khách hàng đã đặt mua sản phẩm (SL ít)</h3>
 
-		<ul class="list-group list-group-horizontal">
-			<li class="list-group-item">STT</li>
-			<li class="list-group-item">Tên khách hàng</li>
-			<li class="list-group-item">Số điện thoại</li>
-			<li class="list-group-item">Địa chỉ</li>
-			<li class="list-group-item">Sản phẩm đã chọn</li>
-			<li class="list-group-item">Số lượng</li>
-			<li class="list-group-item">Thời gian đặt hàng</li>
-		</ul>
+		<table>
+			<thead>
+				<tr>
+					<th>STT</th>
+					<th>Tên khách hàng</th>
+					<th>Số điện thoại</th>
+					<th>Địa chỉ</th>
+					<th>Sản phẩm đã chọn</th>
+					<th>Số lượng</th>
+					<th>Thời gian đặt hàng</th>
+				</tr>
+			</thead>
+			<tbody>
+				{{#each RegistProductHandled}}
+				<tr>
+					<td>{{ counter @index }}</td>
+					<td>{{ this.name }}</td>
+					<td>{{ this.phone }}</td>
+					<td>{{ this.address }}</td>
+					<td>{{ this.productSelected }}</td>
+					<td>{{ this.productQuantity }}</td>
+					<td>{{ this.createAt }}</td>
+				</tr>
+				{{/each}}
+			</tbody>
+		</table>
 
-		{{#each RegistProductHandled}}
-		<ul class="list-group list-group-horizontal">
-			<li class="list-group-item">{{ counter @index }}</li>
-			<li class="list-group-item">{{ this.name }}</li>
-			<li class="list-group-item">{{ this.phone }}</li>
-			<li class="list-group-item">{{ this.address }}</li>
-			<li class="list-group-item">{{ this.productSelected }}</li>
-			<li class="list-group-item">{{ this.productQuantity }}</li>
-			<li class="list-group-item">{{ this.createAt }}</li>
-		</ul>
-
-		{{/each}}
-
-		
 
 		<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
 			integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

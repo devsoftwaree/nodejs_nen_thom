@@ -9,6 +9,9 @@
     <a class="last" href="/blog">Blog</a>
 </nav>
 
+<!-- Message: Success regist products -->
+<div id="message"></div>
+
 <!-- Leaderboard -->
 <section id="leaderboard">
     <object class="leaderboard__content" data="/assets/image/Leaderboard.svg" type="image/svg+xml" width="100%"
@@ -64,38 +67,37 @@
 
         </div>
 
-        <form id="modal-form" class="modal-body" onsubmit="return checkBeforeBuy(event)">
+        <form id="modal-form" method="POST" action="/product/send/" class="modal-body" onsubmit="return checkBeforeBuy(event)">
             <!-- Input Quatity -->
             <label for="modal-ip-quatity" class="modal-label">
                 <i class="shoping-icon ti-shopping-cart"></i>
                 Số lượng sản phẩm
             </label>
-            <input type="number" class="modal-input" placeholder="Nhập số lượng..." id="modal-ip-quatity">
+            <input type="number" class="modal-input" name="productQuantity" placeholder="Nhập số lượng..." id="modal-ip-quatity">
 
             <!-- Input name -->
             <label for="modal-ip-username" class="modal-label">
                 <i class="user-icon ti-user"></i>
                 Tên khách hàng
             </label>
-            <input type="text" class="modal-input" placeholder="Nhập họ và tên..." id="modal-ip-username">
+            <input type="text" class="modal-input" name="name" placeholder="Nhập họ và tên..." id="modal-ip-username">
 
             <!-- Input phone -->
             <label for="modal-ip-userphone" class="modal-label">
                 <i class="user-icon ti-mobile"></i>
                 Số điện thoại
             </label>
-            <input type="tel" class="modal-input" placeholder="Nhập số điện thoại..." id="modal-ip-userphone">
+            <input type="tel" class="modal-input" name="phone" placeholder="Nhập số điện thoại..." id="modal-ip-userphone">
 
             <!-- Input address -->
             <label for="modal-ip-address" class="modal-label">
                 <i class="user-icon ti-location-pin"></i>
                 Địa chỉ
             </label>
-            <input type="text" class="modal-input" placeholder="Nhập địa chỉ..." id="modal-ip-address">
+            <input type="text" class="modal-input" name="address" placeholder="Nhập địa chỉ..." id="modal-ip-address">
 
             <!-- Button corfirm -->
-            <input type="submit" id="corfirm" value="ĐẶT HÀNG" onclick="checkBeforeBuy(event)">
-            </input>
+            <input type="submit" id="corfirm" value="ĐẶT HÀNG">
         </form>
     </div>
 </div>
