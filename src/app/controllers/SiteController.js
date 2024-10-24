@@ -21,7 +21,7 @@ const User = require('../models/User')
 const Admin = require('../models/Admin')
 
 class SiteController {
-
+    static checkAdminUser = false;
     // [GET] /home
     async index(req, res) {
         res.render('home')
@@ -29,20 +29,24 @@ class SiteController {
 
     // [GET] /customer-info
     async showData(req, res, next) {
-        try {
-            const [RegistCollectHandled, RegistProductHandled] = await Promise.all([
-                RegistCollect.find({}).then(RegistCollect => {
-                    return RegistCollect.map(item => item.toObject());
-                }),
-                RegistProduct.find({}).then(RegistProduct => {
-                    return RegistProduct.map(item => item.toObject());
-                })
-            ]);
+        if (SiteController.checkAdminUser === true) {
+            try {
+                const [RegistCollectHandled, RegistProductHandled] = await Promise.all([
+                    RegistCollect.find({}).then(RegistCollect => {
+                        return RegistCollect.map(item => item.toObject());
+                    }),
+                    RegistProduct.find({}).then(RegistProduct => {
+                        return RegistProduct.map(item => item.toObject());
+                    })
+                ]);
 
-            res.render('customer-info', { RegistCollectHandled, RegistProductHandled });
-        } catch (err) {
-            next(err);
+                res.render('customer-info', { RegistCollectHandled, RegistProductHandled });
+            } catch (err) {
+                next(err);
+            }
         }
+        else 
+            res.send("Không có quyền truy cập!")
     }
 
     // [GET] /dang-nhap
@@ -55,24 +59,24 @@ class SiteController {
         const clientUserName = req.body.username;
         const clientUserPass = req.body.password;
 
-        try {
-            const resultAdmin = await Admin.findOne({ username: clientUserName }).exec();
-            if (resultAdmin && resultAdmin.password === clientUserPass) {
-                return res.redirect('/customer-info');
-            }
 
-            const resultUser = await User.findOne({ username: clientUserName }).exec();
-            if (resultUser && resultUser.password === clientUserPass) {
-                return res.redirect('/?login=true');
-            }
-
-            res.redirect('/dang-nhap?login=false');
-        } catch (err) {
-            res.status(500).json({ error: err });
+        const resultAdmin = await Admin.findOne({ username: clientUserName }).exec();
+        if (resultAdmin && resultAdmin.password === clientUserPass) {
+            SiteController.checkAdminUser = true
+            return res.redirect('/customer-info');
         }
+
+        const resultUser = await User.findOne({ username: clientUserName }).exec();
+        if (resultUser && resultUser.password === clientUserPass) {
+            SiteController.checkAdminUser = false
+            return res.redirect('/?login=true');
+        }
+
+        res.redirect('/dang-nhap?login=false');
+
     }
 
-    // [GET] /dang-nhap
+    // [GET] /dang-ki
     renderSignUp(req, res) {
         res.render('dangKi')
     }
@@ -84,9 +88,7 @@ class SiteController {
             .then(() => {
                 res.redirect('/dang-ki?signup=true')
             })
-            .catch(next => {
-                res.redirect('/dang-ki?signup=false')
-            });
+            .catch(next);
     }
 
 }

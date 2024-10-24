@@ -348,7 +348,7 @@ function checkBeforeSignUp() {
     var confirmPasswordElm = document.getElementById('confirm-password')
     var confirmPassword = confirmPasswordElm.value
 
-    if (!isEmptyForm("login-form")) {
+    if (!isEmptyForm("signup-form")) {
         if (userNameSignUp == "") 
             showErrorToast("Lỗi", "Vui lòng nhập tên đăng nhập.");
         else if (emailSignUp == "")
@@ -362,6 +362,28 @@ function checkBeforeSignUp() {
     }
     else {
         showWarningToast("Vui lòng nhập thông tin bạn nhé!");
-        return false
     }
+    return false
+}
+
+
+function checkBeforeLogin() {
+    var userNameLoginpElm = document.getElementById('username')
+    var userNameLogin = userNameLoginpElm.value
+
+    var passwordLoginElm = document.getElementById('password')
+    var passwordLogin = passwordLoginElm.value
+    
+    if (!isEmptyForm("login-form")) {
+        if (userNameLogin == "") 
+            showErrorToast("Lỗi", "Vui lòng nhập tên đăng nhập.");
+        else if (passwordLogin == "")
+            showErrorToast("Lỗi", "Vui lòng nhập mật khẩu");
+        else
+            return true;
+    }
+    else {
+        showWarningToast("Vui lòng nhập thông tin bạn nhé!");
+    }
+    return false
 }

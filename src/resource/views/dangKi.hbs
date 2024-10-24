@@ -14,7 +14,7 @@
 
 <!-- Form đăng kí -->
 <div class="login-signup-container">
-    <form id="login-form" method="POST" action="/user-signup" class="formDangKyDangNhap">
+    <form id="signup-form" method="POST" action="/user-signup" onsubmit="return checkBeforeSignUp()" class="formDangKyDangNhap">
         <h1>Đăng kí</h1>
         <div class="input-label">
             <label for="username">Tên người dùng</label> <br>
