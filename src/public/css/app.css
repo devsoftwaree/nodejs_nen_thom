@@ -37,7 +37,10 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  margin-top: 12px; }
+  margin-top: 12px;
+  position: sticky;
+  top: 0;
+  background-color: #F2E9E1; }
 
 #header .header__logo img {
   width: 100px;

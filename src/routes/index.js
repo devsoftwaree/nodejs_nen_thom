@@ -3,19 +3,17 @@
 
 // Nạp file .route.js vào
 
-const contactRouter = require('./contact.route.js');
+const buyCollectsRouter = require('./buyCollects.route.js');
 const siteRouter = require('./site.js');
 const productRouter = require('./product.route.js')
 const blogRouter = require('./blog.route.js')
 
 function route(app) {
-   
-
     // app.get('/contact', (req, res) => {
     //     res.render('contact');
     // }); ==> Viết lại sau khi đã bóc tách các thành phần Router, Controller:
   
-    app.use('/contact', contactRouter)
+    app.use('/buy-collects', buyCollectsRouter)
 
     app.use('/blog', blogRouter)
     app.use('/product', productRouter)

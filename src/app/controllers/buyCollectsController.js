@@ -1,9 +1,9 @@
 const RegistCollect = require('../models/RegistCollect')
 
-class ContactController {
+class buyCollectsController {
     // [GET] /news
     index(req, res) {
-        res.render('contact');
+        res.render('buy-collects');
     }
 
     // [POST]: Send data to db
@@ -13,10 +13,10 @@ class ContactController {
         const record = new RegistCollect(formData)
         record.save()
         .then(() => {
-            res.redirect('/contact?success=true')
+            res.redirect('/buy-collects?success=true')
         })
         .catch(next);
     }
 }
 
-module.exports = new ContactController;
+module.exports = new buyCollectsController;

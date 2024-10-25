@@ -1,7 +1,7 @@
 @import 'variable';
 
 body {
-    background-color: #F2E9E1;
+    background-color: $main-bg-color;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -48,6 +48,9 @@ body {
     flex-direction: row;
     justify-content: space-around;
     margin-top: 12px;
+    position: sticky;
+    top: 0;
+    background-color: $main-bg-color;
 }
 
 #header .header__logo img {

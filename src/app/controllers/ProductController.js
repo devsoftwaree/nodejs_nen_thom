@@ -43,13 +43,13 @@ class ProductController {
                 break
         }
         const formData = req.body
-        // console.log(formData) -> Kiểm tra dữ liệu trả về
+        // console.log(formData)  // -> Kiểm tra dữ liệu trả về
         const record = new RegistProduct(formData)
         record.save()
         
         .then(() => {
             let linkDirect = `/product/${currentPage}?success=true`
-            console.log('Redirecting to: ', linkDirect);
+            // console.log('Redirecting to: ', linkDirect);
             res.json({ redirect: linkDirect });
         })
         .catch(next);

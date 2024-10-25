@@ -59,17 +59,21 @@ class SiteController {
         const clientUserName = req.body.username;
         const clientUserPass = req.body.password;
 
-
-        const resultAdmin = await Admin.findOne({ username: clientUserName }).exec();
-        if (resultAdmin && resultAdmin.password === clientUserPass) {
-            SiteController.checkAdminUser = true
-            return res.redirect('/customer-info');
+        try {
+            const resultAdmin = await Admin.findOne({ username: clientUserName }).exec();
+            if (resultAdmin && resultAdmin.password === clientUserPass) {
+                SiteController.checkAdminUser = true
+                return res.redirect('/customer-info');
+            }
+    
+            const resultUser = await User.findOne({ username: clientUserName }).exec();
+            if (resultUser && resultUser.password === clientUserPass) {
+                SiteController.checkAdminUser = false
+                return res.redirect('/?login=true');
+            }
         }
-
-        const resultUser = await User.findOne({ username: clientUserName }).exec();
-        if (resultUser && resultUser.password === clientUserPass) {
-            SiteController.checkAdminUser = false
-            return res.redirect('/?login=true');
+        catch(next) {
+            
         }
 
         res.redirect('/dang-nhap?login=false');

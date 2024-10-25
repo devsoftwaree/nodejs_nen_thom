@@ -1,6 +1,6 @@
 // Navigate to contact - Dẫn đến trang contact
 function navigateToContact() {
-    window.location.href = '/contact'; 
+    window.location.href = '/buy-collects'; 
 }
 
 // Toast function
@@ -329,8 +329,9 @@ function checkBeforeBuy(event) {
             modal.classList.remove("open");
             return true;
         }
-    } else 
+    } else {
         showWarningToast("Vui lòng nhập thông tin bạn nhé!");
+    }
     return false;
 }   
 
