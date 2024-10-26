@@ -4,7 +4,7 @@ var router = express.Router()
 
 const buyCollectsController = require('../app/controllers/BuyCollectsController')
 
-router.post('/send', buyCollectsController.send)
-router.get('/', buyCollectsController.index)
+router.post('/send', buyCollectsController.send);
+router.get('/', buyCollectsController.index);
 
-module.exports = router
+module.exports = router;
