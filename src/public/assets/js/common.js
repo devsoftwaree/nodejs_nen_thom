@@ -388,3 +388,13 @@ function checkBeforeLogin() {
     }
     return false
 }
+
+function closeSidebar() {
+    document.getElementById('sidebar').classList.add('hidden')
+    document.getElementById('sidebar').classList.remove('visible')
+}
+
+function openSidebar() {
+    document.getElementById('sidebar').classList.add('visible')
+    document.getElementById('sidebar').classList.remove('hidden')
+}

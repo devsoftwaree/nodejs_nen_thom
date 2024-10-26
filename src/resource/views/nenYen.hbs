@@ -12,51 +12,79 @@
 <!-- Message: Success regist products -->
 <div id="message"></div>
 
-<!-- Leaderboard -->
-<section id="leaderboard">
-    <object class="leaderboard__content" data="/assets/image/Leaderboard.svg" type="image/svg+xml" width="100%"
-        height="auto"></object>
-</section>
+<div class="main-container">
+    <button type="button" id="show-sidebar"><i class="fa fa-phone" aria-hidden="true"
+            onclick="openSidebar()"></i></button>
+    <div id="sidebar" class="main-container__sidebar">
+        <span class="close-btn" onclick="closeSidebar()">&times;</span>
 
-<!-- Products -->
-<section id="products">
-    <div id="an-yen" class="products-card">
-        <div class="products-card__image">
-            <img src="/assets/image/BST_Yen/An-Yên.png" alt="An Yên">
-        </div>
-        <div class="products-card__buy">
-            <h2>Giá: 199.000đ</h2>
-            <button class="buy-btn" type="button"><i class="ti-shopping-cart"></i></button>
+        <h2 class="text-center" style="color: #8e724b">Thông tin liên hệ</h2>
+        <form id="sidebar-contact-form" action="/submit" method="post">
+            <div class="form-group user">
+                <input type="text" id="sidebar-name" name="name" placeholder="Tên khách hàng" required>
+                <select name="gender" id="sidebar-gender" required>
+                    <option value="">Giới tính</option>
+                    <option value="male">Nam</option>
+                    <option value="female">Nữ</option>
+                    <option value="other">Khác</option>
+                </select>
+            </div>
+            <input type="tel" id="sidebar-phone" name="phone" placeholder="Số điện thoại" required>`
+            <input type="email" id="sidebar-email" name="email" placeholder="Email" required>`
+            <input id="sidebar-submit" type="submit" value="Gửi">
+
+        </form>
+        <div class="image-container">
+            <img src="/assets/image/POP-UP.svg" alt="An awesome image">
         </div>
     </div>
-    <div id="nhan" class="products-card">
-        <div class="products-card__image">
-            <img src="/assets/image/BST_Yen/Nhàn.png" alt="Nhàn">
-        </div>
-        <div class="products-card__buy">
-            <h2>Giá: 219.000đ</h2>
-            <button class="buy-btn" type="button"><i class="ti-shopping-cart"></i></button>
-        </div>
-    </div>
-    <div id="thien" class="products-card">
-        <div class="products-card__image">
-            <img src="/assets/image/BST_Yen/Thiền.png" alt="Thiền">
-        </div>
-        <div class="products-card__buy">
-            <h2>Giá: 179.000đ</h2>
-            <button class="buy-btn" type="button"><i class="ti-shopping-cart"></i></button>
-        </div>
-    </div>
-</section>
+    <div class="main-container__content">
+        <!-- Leaderboard -->
+        <section id="leaderboard">
+            <object class="leaderboard__content" data="/assets/image/Leaderboard.svg" type="image/svg+xml" width="100%"
+                height="auto"></object>
+        </section>
 
-<!-- Video -->
-<section id="video-container">
-	<video width="600" height="auto" autoplay loop muted>
-		<source src="/assets/videos/VideoSP.mp4" type="video/mp4">
-		Your browser does not support the video tag.
-	</video>
-</section>
+        <!-- Products -->
+        <section id="products">
+            <div id="an-yen" class="products-card">
+                <div class="products-card__image">
+                    <img src="/assets/image/BST_Yen/An-Yên.png" alt="An Yên">
+                </div>
+                <div class="products-card__buy">
+                    <h2>Giá: 199.000đ</h2>
+                    <button class="buy-btn" type="button"><i class="ti-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div id="nhan" class="products-card">
+                <div class="products-card__image">
+                    <img src="/assets/image/BST_Yen/Nhàn.png" alt="Nhàn">
+                </div>
+                <div class="products-card__buy">
+                    <h2>Giá: 219.000đ</h2>
+                    <button class="buy-btn" type="button"><i class="ti-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div id="thien" class="products-card">
+                <div class="products-card__image">
+                    <img src="/assets/image/BST_Yen/Thiền.png" alt="Thiền">
+                </div>
+                <div class="products-card__buy">
+                    <h2>Giá: 179.000đ</h2>
+                    <button class="buy-btn" type="button"><i class="ti-shopping-cart"></i></button>
+                </div>
+            </div>
+        </section>
 
+        <!-- Video -->
+        <section id="video-container">
+            <video width="600" height="auto" autoplay loop muted>
+                <source src="/assets/videos/VideoSP.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </section>
+    </div>
+</div>
 <!-- Modal -->
 <div class="modal js-modal">
     <div id="message"></div>
@@ -75,13 +103,15 @@
 
         </div>
 
-        <form id="modal-form" method="POST" action="/product/send" class="modal-body" onsubmit="return checkBeforeBuy(event)">
+        <form id="modal-form" method="POST" action="/product/send" class="modal-body"
+            onsubmit="return checkBeforeBuy(event)">
             <!-- Input Quatity -->
             <label for="modal-ip-quatity" class="modal-label">
                 <i class="shoping-icon ti-shopping-cart"></i>
                 Số lượng sản phẩm
             </label>
-            <input type="number" class="modal-input" name="productQuantity" placeholder="Nhập số lượng..." id="modal-ip-quatity">
+            <input type="number" class="modal-input" name="productQuantity" placeholder="Nhập số lượng..."
+                id="modal-ip-quatity">
 
             <!-- Input name -->
             <label for="modal-ip-username" class="modal-label">
@@ -95,7 +125,8 @@
                 <i class="user-icon ti-mobile"></i>
                 Số điện thoại
             </label>
-            <input type="tel" class="modal-input" name="phone" placeholder="Nhập số điện thoại..." id="modal-ip-userphone">
+            <input type="tel" class="modal-input" name="phone" placeholder="Nhập số điện thoại..."
+                id="modal-ip-userphone">
 
             <!-- Input address -->
             <label for="modal-ip-address" class="modal-label">

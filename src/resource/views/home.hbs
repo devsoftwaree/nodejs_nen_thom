@@ -8,6 +8,7 @@
         width: 100%;
         height: 100%;
         background-color: rgba(0, 0, 0, 0.5);
+        z-index: 9;
         /* Black background with opacity */
     }
 
@@ -36,23 +37,6 @@
         object-fit: cover;
     }
 
-    .close-btn {
-        position: absolute;
-        top: 10px;
-        right: 25px;
-        color: #aaa;
-        font-size: 48px;
-        font-weight: bold;
-        cursor: pointer;
-    }
-
-    .close-btn:hover,
-    .close-btn:focus {
-        color: black;
-        text-decoration: none;
-        cursor: pointer;
-    }
-
     @keyframes fadeIn {
         from {
             opacity: 0;
@@ -77,44 +61,73 @@
 <!-- Message: Success regist products -->
 <div id="message"></div>
 
-<!-- Content -->
-<section id="banner">
-    <object class="banner__content" data="/assets/image/BannerHOME.svg" type="image/svg+xml" width="100%"
-        height="auto"></object>
-</section>
+<div class="main-container">
+    <button type="button" id="show-sidebar"><i class="fa fa-phone" aria-hidden="true" onclick="openSidebar()"></i></button>
+    <div id="sidebar" class="main-container__sidebar">
+        <span class="close-btn" onclick="closeSidebar()">&times;</span>
 
-<h1 class="text-center text-uppercase yeseva-one" style="color: #8e724b; margin-top: 60px; margin-bottom: -32px">Sản
-    phẩm bán chạy</h1>
+        <h2 class="text-center" style="color: #8e724b">Thông tin liên hệ</h2>
+        <form id="sidebar-contact-form" action="/submit" method="post">
+            <div class="form-group user">
+                <input type="text" id="sidebar-name" name="name" placeholder="Tên khách hàng" required>
+                <select name="gender" id="sidebar-gender" required>
+                    <option value="">Giới tính</option>
+                    <option value="male">Nam</option>
+                    <option value="female">Nữ</option>
+                    <option value="other">Khác</option>
+                </select>
+            </div>
+            <input type="tel" id="sidebar-phone" name="phone" placeholder="Số điện thoại" required>`
+            <input type="email" id="sidebar-email" name="email" placeholder="Email" required>`
+            <input id="sidebar-submit" type="submit" value="Gửi">
 
-<section id="products">
-    <div id="an-yen" class="products-card">
-        <div class="products-card__image">
-            <img src="/assets/image/BST_Yen/An-Yên.png" alt="An Yên">
-        </div>
-        <div class="products-card__buy">
-            <h2>Giá: 199.000đ</h2>
-            <button class="buy-btn" type="button"><i class="ti-shopping-cart"></i></button>
+        </form>
+        <div class="image-container">
+            <img src="./assets/image/POP-UP.svg" alt="An awesome image">
         </div>
     </div>
-    <div id="cam-thao" class="products-card">
-        <div class="products-card__image">
-            <img src="/assets/image/BST_Nhien/Cam-Thảo.png" alt="Cam Thảo">
-        </div>
-        <div class="products-card__buy">
-            <h2>Giá: 179.000đ</h2>
-            <button class="buy-btn" type="button"><i class="ti-shopping-cart"></i></button>
-        </div>
+    <div class="main-container__content">
+        <!-- Content -->
+        <section id="banner">
+            <object class="banner__content" data="/assets/image/BannerHOME.svg" type="image/svg+xml" width="100%"
+                height="auto"></object>
+        </section>
+
+        <h1 class="text-center text-uppercase yeseva-one"
+            style="color: #8e724b; margin-top: 60px; margin-bottom: -32px">Sản
+            phẩm bán chạy</h1>
+
+        <section id="products">
+            <div id="an-yen" class="products-card">
+                <div class="products-card__image">
+                    <img src="/assets/image/BST_Yen/An-Yên.png" alt="An Yên">
+                </div>
+                <div class="products-card__buy">
+                    <h2>Giá: 199.000đ</h2>
+                    <button class="buy-btn" type="button"><i class="ti-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div id="cam-thao" class="products-card">
+                <div class="products-card__image">
+                    <img src="/assets/image/BST_Nhien/Cam-Thảo.png" alt="Cam Thảo">
+                </div>
+                <div class="products-card__buy">
+                    <h2>Giá: 179.000đ</h2>
+                    <button class="buy-btn" type="button"><i class="ti-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div id="yeu-thuong" class="products-card">
+                <div class="products-card__image">
+                    <img src="/assets/image/BST_Cham/Yêu-Thương.png" alt="Yêu Thương">
+                </div>
+                <div class="products-card__buy">
+                    <h2>Giá: 189.000đ</h2>
+                    <button class="buy-btn" type="button"><i class="ti-shopping-cart"></i></button>
+                </div>
+            </div>
+        </section>
     </div>
-    <div id="yeu-thuong" class="products-card">
-        <div class="products-card__image">
-            <img src="/assets/image/BST_Cham/Yêu-Thương.png" alt="Yêu Thương">
-        </div>
-        <div class="products-card__buy">
-            <h2>Giá: 189.000đ</h2>
-            <button class="buy-btn" type="button"><i class="ti-shopping-cart"></i></button>
-        </div>
-    </div>
-</section>
+</div>
 
 
 <!-- Modal -->
