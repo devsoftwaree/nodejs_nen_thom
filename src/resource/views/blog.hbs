@@ -1,17 +1,97 @@
-<!-- Navbar -->
-<nav id="navbar">
-    <a class="first" href="/">Trang chủ</a>
-    <div class="middle-group">
-        <a href="/product/nen-yen">Nến thơm Yên</a>
-        <a href="/product/nen-nhien">Nến thơm Nhiên</a>
-        <a href="/product/nen-cham">Nến thơm Chạm</a>
-    </div>
-    <a class="mark-current-page" href="/blog">Blog</a>
-</nav>
+<head>
+    <style>
+        .news-post {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            padding: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .New-post {
+            display: block;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: rgb(121, 12, 12);
+            font-size: 24px;
+            margin: 10px 0;
+        }
+
+        .post-image {
+            display: block;
+            margin: 0 auto 15px;
+            border-radius: 5px;
+        }
+
+        p {
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: rgb(121, 12, 12);
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .button:hover {
+            background-color: #a00;
+        }
+
+        .actions {
+            margin-top: 15px;
+        }
+
+        .like-btn,
+        .comment-btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .like-btn:hover,
+        .comment-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .comments {
+            margin-top: 20px;
+        }
+
+        textarea {
+            width: 90%;
+            height: 60px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        textarea:focus {
+            border-color: rgb(121, 12, 12);
+            outline: none;
+        }
+    </style>
+</head>
+
 <!--Banner-->
 <div id="leaderboard">
     <div class="leaderboard__content">
-        <img src="/assets/image/nền.png" alt="Nến thơm Thiền" class="nen-image" width="100%">
+        <img src="/assets/image/nền.png" alt="Nến thơm Thiền" class="nen-image" style="border-radius: 15px" width="100%">
     </div>
 </div>
 <main>
@@ -22,8 +102,9 @@
             <h2 style="color: rgb(121, 12, 12);">1. BST Yên- Hương thơm thiên nhiên</h2>
             <img src="/assets/image/BST_Yen/Thiền.png" alt="Nến thơm Thiền" class="post-image" width="300">
             <p>Hơi thở thanh mát và đầy năng lượng của thiên nhiên mở ra không gia tươi
-                mới....</p><a href="Bài đăng/BST.docx" class="button">Đọc thêm</a>
+                mới....</p>
             <div class="actions">
+                <a href="/assets/post/BST.html" class="button">Đọc thêm</a>
                 <button class="like-btn">Like</button>
             </div>
             <div class="comments">
@@ -37,9 +118,9 @@
         <article class="news-post">
             <h2 style="color: rgb(121, 12, 12);">2. Bật mí 5 Tips bảo quản nến thơm đúng cách</a> </h2>
             <img src="/assets/image/Nến thơm BQ.jpg" alt="Nến thơm tự nhiên" class="post-image" width="200">
-            <p>Cách bảo quản nến thơm nghe có vẻ đơn giản, nhưng không phải ai cũng biết...</p> <a
-                href="Bài đăng/Bật mí 5 Tips bảo quản nến thơm đúng cách.docx" class="button">Đọc thêm</a>
+            <p>Cách bảo quản nến thơm nghe có vẻ đơn giản, nhưng không phải ai cũng biết...</p> 
             <div class="actions">
+                <a href="/assets/post/5 tips bảo quản.html" class="button">Đọc thêm</a>
                 <button class="like-btn">Like</button>
             </div>
             <div class="comments">
@@ -53,9 +134,9 @@
         <article class="news-post">
             <h2 style="color: rgb(121, 12, 12)">3. Các mẫu nến thơm khiến phái đẹp “gục ngã”</a></h2>
             <img src="/assets/image/Nến thơm 2.webp" alt="Các loại nến thơm" class="post-image" width="200">
-            <p>Mùi hương là “phụ kiện” không thể thiếu của phái đẹp trong thế giới hiện đại...</p><a
-                href="Bài đăng/Các mẫu nến thơm khiến phái đẹp.docx" class="button">Đọc thêm</a>
+            <p>Mùi hương là “phụ kiện” không thể thiếu của phái đẹp trong thế giới hiện đại...</p>
             <div class="actions">
+                <a href="/assets/post/Nen-phai-dep.html" class="button">Đọc thêm</a>
                 <button class="like-btn">Like</button>
             </div>
             <div class="comments">
@@ -70,9 +151,9 @@
             <h2 style="color: rgb(121, 12, 12)">4. Gợi ý một số quà tặng mùa Valentine tình yêu</a></h2>
             <img src="/assets/image/image1.jpg" alt="Quà tặng nến thơm" class="post-image" width="200">
             <p>Sắp đến Valentine mà bạn không biết tặng gì cho người ấy? Bạn đang tìm kiếm một món quà ý
-                nghĩa và độc đáo? ..</p><a href="Bài đăng/Quà tặng Valinetine.docx" class="button">Đọc
-                thêm</a>
+                nghĩa và độc đáo? ..</p>
             <div class="actions">
+                <a href="/assets/post/Quà-tặng-Valinetine.html" class="button">Đọc thêm</a>
                 <button class="like-btn">Like</button>
             </div>
             <div class="comments">
@@ -81,6 +162,5 @@
                 <button class="comment-btn">Bình luận</button>
             </div>
         </article>
-    </div>
     </div>
 </main>

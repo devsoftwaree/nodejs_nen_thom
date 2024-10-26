@@ -1,19 +1,94 @@
 <header id="header">
-    <div class="header__logo">
-        <img src="/assets/image/LOGO 1.svg" alt="Logo Nến Mộc">
-    </div>
-    <div class="header__main">
-        <div class="search-area">
-            <input type="text" name="seacrh" id="search-bar" placeholder="Search...">
-            <button type="button" id="search-btn"><i class="ti-search"></i></button>
-        </div>
-        <button type="button" id="order-now-btn" onclick="navigateToContact()">Đặt hàng ngay!</button>
-    </div>
-    <div class="header__account">
-        <a href="/dang-nhap" class="text-center">
-            <img src="/assets/image/icon/account-ico.png" alt="">
-            <p class="yeseva-one">Account</p>
-        </a>
+    <!-- Logo -->
+    <img class="header__logo" src="/assets/image/LOGO 1.svg" alt="Logo Nến Mộc">
+    <!-- Navbar -->
+    <nav class="navbar">
+        <ul>
+            <li><a class="navbar__link" href="/">Trang chủ</a></li>
+            <li><a class="navbar__link" href="/product/nen-yen">Nến Thơm Yên</a></li>
+            <li><a class="navbar__link" href="/product/nen-nhien">Nến Thơm Nhiên</a></li>
+            <li><a class="navbar__link" href="/product/nen-cham">Nến Thơm Chạm</a></li>
+            <li><a class="navbar__link" href="/blog">Blog</a></li>
+            <li>
+                <button type="button" id="order-now-btn" onclick="navigateToBuyCollects()">Đặt hàng ngay!</button>
+            </li>
+        </ul>
+    </nav>
+    <!-- actions  -->
+    <div class="header-action">
+        <button type="button" id="header-action__account"><i class="fa fa-user" aria-hidden="true"
+                onclick="navigateToLogin()"></i></button>
+        <!-- Mobile menu -->
+        <button id="mobile-menu" class="mobile-menu-btn">
+            <i class="fa fa-bars" aria-hidden="true"></i>
+        </button>
     </div>
 </header>
 
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Get the current URL path
+        const currentPath = window.location.pathname;
+
+        // Select all anchor tags in the navbar
+        const navLinks = document.querySelectorAll('.navbar .navbar__link');
+
+        // Loop through the links and add the class to the current page
+        navLinks.forEach(link => {
+            if (link.getAttribute('href') === currentPath) {
+                link.classList.add('mark-current-page');
+            }
+        });
+    });
+
+    var mobileMenu = document.getElementById("mobile-menu");
+    var navbar = document.querySelector("#header .navbar");
+    var listNavLink = document.querySelectorAll("#header .navbar ul li");
+
+    mobileMenu.onclick = function () {
+        var isClosed = navbar.clientHeight === 0;
+        if (isClosed) {
+            navbar.style.height = 'auto';
+            navbar.classList.add("animate-down");
+            navbar.classList.remove("animate-up");
+            setTimeout(() => {
+                for (var i = 0; i < listNavLink.length; i++) {
+                    listNavLink[i].style.display = "block";
+                    listNavLink[i].style.opacity = "1";
+                }
+            }, 200);
+        } else {
+            navbar.classList.add("animate-up");
+            navbar.classList.remove("animate-down");
+            setTimeout(() => {
+                for (var i = 0; i < listNavLink.length; i++) {
+                    listNavLink[i].style.display = "none";
+                    listNavLink[i].style.opacity = "0";
+                }
+            }, 200);
+            navbar.style.height = "0px";
+        }
+    };
+
+    function checkBrowserSize() {
+        var width = window.innerWidth;
+        var listItems = document.querySelectorAll("#header .navbar ul li");
+        var navbar = document.querySelector("#header .navbar");
+        if (width > 1150) {
+            for (var i = 0; i < listNavLink.length; i++) {
+                listItems[i].style.display = "inline-block";
+                listItems[i].style.opacity = "1";
+            }
+            navbar.style.height = "auto";
+        } else {
+            for (var i = 0; i < listNavLink.length; i++) {
+                listItems[i].style.display = "none";
+            }
+            navbar.style.height = "0px";
+        }
+    }
+
+    window.addEventListener("resize", checkBrowserSize);
+    window.addEventListener("load", checkBrowserSize);
+
+</script>

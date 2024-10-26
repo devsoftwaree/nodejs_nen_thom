@@ -2,9 +2,9 @@ var express = require('express')
 
 var router = express.Router()
 
-const contactController = require('../app/controllers/buyCollectsController')
+const buyCollectsController = require('../app/controllers/BuyCollectsController')
 
-router.post('/send', contactController.send)
-router.get('/', contactController.index)
+router.post('/send', buyCollectsController.send)
+router.get('/', buyCollectsController.index)
 
 module.exports = router

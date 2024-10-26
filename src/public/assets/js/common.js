@@ -1,6 +1,15 @@
 // Navigate to contact - Dẫn đến trang contact
-function navigateToContact() {
+function navigateToBuyCollects() {
     window.location.href = '/buy-collects'; 
+}
+
+function navigateToLogin() {
+    window.location.href = '/dang-nhap'
+}
+
+// Go back history - Quay về trang trước đó
+function goBack() {
+    window.history.back();
 }
 
 // Toast function
@@ -223,6 +232,12 @@ document.addEventListener('DOMContentLoaded', function() {
     else if (urlParams.has('login') && urlParams.get('login') === 'false') {
         showErrorToast("Đăng nhập thất bại", "Tên đăng nhập hoặc mật khẩu không đúng.");
     }
+    else if (urlParams.has('contact') && urlParams.get('contact') === 'true') {
+        showSuccessToast("Đăng kí thành công", "Chúng tôi sẽ sớm liên hệ với bạn.");
+    }  
+    else if (urlParams.has('contact') && urlParams.get('contact') === 'false') {
+        showErrorToast("Đăng kí thất bại", "Vui lòng thử lại bạn nhé!");
+    }  
   });
   // Function lấy phần tử cha là id
 function getParentId(event) {

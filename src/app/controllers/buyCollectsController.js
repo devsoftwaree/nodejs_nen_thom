@@ -1,6 +1,6 @@
 const RegistCollect = require('../models/RegistCollect')
 
-class buyCollectsController {
+class BuyCollectsController {
     // [GET] /news
     index(req, res) {
         res.render('buy-collects');
@@ -19,4 +19,4 @@ class buyCollectsController {
     }
 }
 
-module.exports = new buyCollectsController;
+module.exports = new BuyCollectsController;

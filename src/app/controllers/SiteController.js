@@ -19,6 +19,8 @@ const RegistCollect = require('../models/RegistCollect')
 const RegistProduct = require('../models/RegistProduct')
 const User = require('../models/User')
 const Admin = require('../models/Admin')
+const Contact = require('../models/Contact')
+
 
 class SiteController {
     static checkAdminUser = false;
@@ -27,20 +29,26 @@ class SiteController {
         res.render('home')
     };
 
-    // [GET] /customer-info
+    // [GET] /thong-tin-khach-hang
     async showData(req, res, next) {
         if (SiteController.checkAdminUser === true) {
             try {
-                const [RegistCollectHandled, RegistProductHandled] = await Promise.all([
+                const [RegistCollectHandled, RegistProductHandled, ContactHandled, UserHandled] = await Promise.all([
                     RegistCollect.find({}).then(RegistCollect => {
                         return RegistCollect.map(item => item.toObject());
                     }),
                     RegistProduct.find({}).then(RegistProduct => {
                         return RegistProduct.map(item => item.toObject());
+                    }),
+                    Contact.find({}).then(Contact => {
+                        return Contact.map(item => item.toObject());
+                    }),
+                    User.find({}).then(User => {
+                        return User.map(item => item.toObject());
                     })
                 ]);
 
-                res.render('customer-info', { RegistCollectHandled, RegistProductHandled });
+                res.render('customer-info', { RegistCollectHandled, RegistProductHandled, ContactHandled, UserHandled});
             } catch (err) {
                 next(err);
             }
@@ -63,7 +71,7 @@ class SiteController {
             const resultAdmin = await Admin.findOne({ username: clientUserName }).exec();
             if (resultAdmin && resultAdmin.password === clientUserPass) {
                 SiteController.checkAdminUser = true
-                return res.redirect('/customer-info');
+                return res.redirect('/thong-tin-khach-hang');
             }
     
             const resultUser = await User.findOne({ username: clientUserName }).exec();
@@ -95,6 +103,14 @@ class SiteController {
             .catch(next);
     }
 
+    // [POST] /lien-he
+    contact(req, res, next) {
+        const newContact = new Contact(req.body)
+        newContact.save().then(() => {
+            res.redirect('/?contact=true')
+        })
+        .catch(next);
+    }
 }
 
 module.exports = new SiteController;

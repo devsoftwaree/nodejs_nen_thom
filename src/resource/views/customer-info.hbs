@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
 		integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 	<style>
@@ -27,7 +21,7 @@
 		th {
 			background-color: #f2f2f2;
 		}
-		
+
 		tr {
 			background-color: #ceb798;
 		}
@@ -43,15 +37,6 @@
 </head>
 
 <body>
-	<nav id="navbar">
-		<a class="first" href="/">Trang chủ</a>
-		<div class="middle-group">
-			<a href="/product/nen-yen">Nến thơm Yên</a>
-			<a href="/product/nen-nhien">Nến thơm Nhiên</a>
-			<a href="/product/nen-cham">Nến thơm Chạm</a>
-		</div>
-		<a class="last" href="/blog">Blog</a>
-	</nav>
 	<section style="margin: 80px 40px; min-width: 1000px">
 		<h3 style="color: #8e724b">Thông tin khách hàng đã đặt mua BST</h3>
 
@@ -113,7 +98,57 @@
 			</tbody>
 		</table>
 
+		<h3 style="color: #8e724b; margin-top: 80px">Danh sách khách hàng gửi yêu cầu liên hệ</h3>
 
+		<table>
+			<thead>
+				<tr>
+					<th>STT</th>
+					<th>Tên khách hàng</th>
+					<th>Giới tính</th>
+					<th>Số điện thoại</th>
+					<th>Email</th>
+					<th>Thời gian yêu cầu</th>
+				</tr>
+			</thead>
+			<tbody>
+				{{#each ContactHandled}}
+				<tr>
+					<td>{{ counter @index }}</td>
+					<td>{{ this.name }}</td>
+					<td>{{ this.gender }}</td>
+					<td>{{ this.phone }}</td>
+					<td>{{ this.email }}</td>
+					<td>{{ this.createAt }}</td>
+				</tr>
+				{{/each}}
+			</tbody>
+		</table>
+
+		<h3 style="color: #8e724b; margin-top: 80px">Tài khoản khách hàng</h3>
+
+		<table>
+			<thead>
+				<tr>
+					<th>STT</th>
+					<th>Tên đăng nhâp</th>
+					<th>Email</th>
+					<th>Mật khẩu</th>
+					<th>Thời gian tạo</th>
+				</tr>
+			</thead>
+			<tbody>
+				{{#each UserHandled}}
+				<tr>
+					<td>{{ counter @index }}</td>
+					<td>{{ this.username }}</td>
+					<td>{{ this.email }}</td>
+					<td>{{ this.password }}</td>
+					<td>{{ this.createAt }}</td>
+				</tr>
+				{{/each}}
+			</tbody>
+		</table>
 		<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
 			integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
 			crossorigin="anonymous"></script>

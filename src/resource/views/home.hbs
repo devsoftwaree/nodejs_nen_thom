@@ -48,16 +48,6 @@
     }
 </style>
 
-<nav id="navbar">
-    <a class="first mark-current-page" href="/">Trang chủ</a>
-    <div class="middle-group">
-        <a href="/product/nen-yen">Nến thơm Yên</a>
-        <a href="/product/nen-nhien">Nến thơm Nhiên</a>
-        <a href="/product/nen-cham">Nến thơm Chạm</a>
-    </div>
-    <a class="last" href="/blog">Blog</a>
-</nav>
-
 <!-- Message: Success regist products -->
 <div id="message"></div>
 
@@ -67,30 +57,28 @@
         <span class="close-btn" onclick="closeSidebar()">&times;</span>
 
         <h2 class="text-center" style="color: #8e724b">Thông tin liên hệ</h2>
-        <form id="sidebar-contact-form" action="/submit" method="post">
+        <form id="sidebar-contact-form" action="/lien-he" method="post">
             <div class="form-group user">
                 <input type="text" id="sidebar-name" name="name" placeholder="Tên khách hàng" required>
                 <select name="gender" id="sidebar-gender" required>
                     <option value="">Giới tính</option>
-                    <option value="male">Nam</option>
-                    <option value="female">Nữ</option>
-                    <option value="other">Khác</option>
+                    <option value="Nam">Nam</option>
+                    <option value="Nữ">Nữ</option>
+                    <option value="Khác">Khác</option>
                 </select>
             </div>
             <input type="tel" id="sidebar-phone" name="phone" placeholder="Số điện thoại" required>`
             <input type="email" id="sidebar-email" name="email" placeholder="Email" required>`
             <input id="sidebar-submit" type="submit" value="Gửi">
-
         </form>
         <div class="image-container">
-            <img src="./assets/image/POP-UP.svg" alt="An awesome image">
+            <img src="/assets/image/POP-UP.png" alt="An awesome image">
         </div>
     </div>
     <div class="main-container__content">
         <!-- Content -->
         <section id="banner">
-            <object class="banner__content" data="/assets/image/BannerHOME.svg" type="image/svg+xml" width="100%"
-                height="auto"></object>
+            <img src="/assets/image/BannerHOME.png" alt="Siêu tiệc giảm giá" width="100%" height="auto">
         </section>
 
         <h1 class="text-center text-uppercase yeseva-one"
@@ -100,7 +88,9 @@
         <section id="products">
             <div id="an-yen" class="products-card">
                 <div class="products-card__image">
-                    <img src="/assets/image/BST_Yen/An-Yên.png" alt="An Yên">
+                    <a href="/product/infoAnYen">
+                        <img src="/assets/image/BST_Yen/An-Yên.png" alt="An Yên">
+                    </a>
                 </div>
                 <div class="products-card__buy">
                     <h2>Giá: 199.000đ</h2>
@@ -109,7 +99,9 @@
             </div>
             <div id="cam-thao" class="products-card">
                 <div class="products-card__image">
-                    <img src="/assets/image/BST_Nhien/Cam-Thảo.png" alt="Cam Thảo">
+                    <a href="/product/infoCamThao">
+                        <img src="/assets/image/BST_Nhien/Cam-Thảo.png" alt="Cam Thảo">
+                    </a>
                 </div>
                 <div class="products-card__buy">
                     <h2>Giá: 179.000đ</h2>
@@ -118,7 +110,9 @@
             </div>
             <div id="yeu-thuong" class="products-card">
                 <div class="products-card__image">
-                    <img src="/assets/image/BST_Cham/Yêu-Thương.png" alt="Yêu Thương">
+                    <a href="/product/infoYeuThuong">
+                        <img src="/assets/image/BST_Cham/Yêu-Thương.png" alt="Yêu Thương">
+                    </a>
                 </div>
                 <div class="products-card__buy">
                     <h2>Giá: 189.000đ</h2>
@@ -128,7 +122,6 @@
         </section>
     </div>
 </div>
-
 
 <!-- Modal -->
 <div class="modal js-modal">
@@ -190,7 +183,7 @@
     <div class="popup-container">
         <div class="popup-content">
             <span class="close-btn" onclick="closePopup()">&times;</span>
-            <a href="/product/nen-yen"><img src="./assets/image/POP-UP.svg" alt="Nến Thơm Popup"></a>
+            <a href="/product/nen-yen"><img src="/assets/image/POP-UP.png" alt="Nến Thơm Popup"></a>
         </div>
     </div>
 </div>

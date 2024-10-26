@@ -17,6 +17,43 @@ class ProductController {
         res.render('nenCham');
     }
 
+    // [GET] /info<product>
+    infoAnYen(req, res) {
+        res.render('nenAnYenInfo')
+    }
+
+    infoNhan(req, res) {
+        res.render('nenNhanInfo')
+    }
+
+    infoThien(req, res) {
+        res.render('nenThienInfo')
+    }
+
+    infoCamThao(req, res) {
+        res.render('nenCamThaoInfo')
+    }
+
+    infoCaPhe(req, res) {
+        res.render('nenCaPheInfo')
+    }
+
+    infoQueHoi(req, res) {
+        res.render('nenQueHoiInfo')
+    }
+
+    infoNgot(req, res) {
+        res.render('nenNgotInfo')
+    }
+    
+    infoHy(req, res) {
+        res.render('nenHyInfo')
+    }
+
+    infoYeuThuong(req, res) {
+        res.render('nenYeuThuongInfo')
+    }
+
     // [POST]: Send data to db
     send(req, res, next) {
         // console.log(req.body); // Kiểm tra xem dữ liệu nhận được đúng chưa
