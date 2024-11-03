@@ -1,24 +1,27 @@
 function checkInfoRegist() {
     var userNameElement = document.getElementById("user_name");
     var userName = userNameElement.value;
-    // console.log(userName);
 
     var userPhoneElement = document.getElementById("user_phone");
     var userPhone = userPhoneElement.value; 
 
     var userEmailElement = document.getElementById("user_email");
     var userEmail = userEmailElement.value;
-    // console.log(userEmail);
 
     var userAddressElement = document.getElementById("user_address");
     var userAddress = userAddressElement.value;
-    // console.log(userAddress);
 
     var userSelectElement = document.getElementById("user_select");
     var userSelect = userSelectElement.value;
 
     var productQuantityElement = document.getElementById("product_quatity");
     var productQuantity = productQuantityElement.value;
+
+    var provinceElement = document.getElementById("province");
+    var provinceSelected = provinceElement.value;
+
+    var districtElement = document.getElementById("district");
+    var districtSelected = districtElement.value;
 
     var phonePattern = /^[0-9]{10}$/;
 
@@ -38,6 +41,12 @@ function checkInfoRegist() {
         else if (!userEmailElement.validity.valid)
             showErrorToast("Vui lòng nhập đúng định dạng email.");
 
+        else if (provinceSelected == "")
+            showErrorToast("Vui lòng chọn tỉnh/thành phố.");
+
+        else if (districtSelected == "")
+            showErrorToast("Vui lòng chọn quận/huyện.");
+
         else if (userAddress == "")
             showErrorToast("Vui lòng nhập địa chỉ của bạn.");
 
@@ -53,4 +62,4 @@ function checkInfoRegist() {
     } else 
         showWarningToast("Vui lòng nhập thông tin bạn nhé!");
     return false;
-}   
+}

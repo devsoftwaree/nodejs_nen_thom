@@ -4,7 +4,7 @@
   "main": "src/index.js",
   "scripts": {
     "beautiful": "lint-staged",
-    "start": "nodemon --inspect src/index.js",
+    "start": "node src/index.js",
     "update-css": "node-sass src/resource/scss/ --output src/public/css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -28,6 +28,30 @@
   },
   "hooks": {
     "pre-commit": "lint-staged"
+  },
+  "bin": {
+    "Website_nen_thom": "src/index.js"
+  },
+  "pkg": {
+    "scripts": "src/index.js",
+    "assets": [
+      "src/**/*",
+      "src/app/**/*",
+      "src/config/**/*",
+      "src/public/**/*",
+      "src/resource/**/*",
+      "src/routes/**/*",
+      "node_modules/bson/**/*",
+      "node_modules/mongodb/**/*",
+      "node_modules/string-width/**/*",
+      "node_modules/strip-ansi/**/*",
+      "node_modules/wrap-ansi/**/*"
+    ],
+    "targets": [
+      "node16-linux-x64",
+      "node16-macos-x64",
+      "node16-win-x64"
+    ]
   },
   "dependencies": {
     "express": "^4.21.1",

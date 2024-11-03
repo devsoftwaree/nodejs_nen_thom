@@ -1,6 +1,6 @@
 <!-- Section: Form -->
 <section id="contact">
-    <!-- Mesage --> 
+    <!-- Mesage -->
     <div id="message"></div>
 
     <div class="contact-info-form">
@@ -31,8 +31,20 @@
                     placeholder="Nhập số điện thoại của bạn"></input>
                 <input id="user_email" class="get-info" name="email" type="email"
                     placeholder="Nhập email của bạn"></input>
+                <div style="display: flex; justify-content: space-between; width: 93%; align-self: center; grap: 20px;">
+                    <select id="province" name="province" class="get-info select-tab" style="max-width: 45%"
+                        onchange="updateDistricts()">
+                        <option value="">--Chọn Tỉnh/Thành Phố--</option>
+                        <!-- Thêm các tùy chọn tỉnh/thành phố ở đây -->
+                    </select>
+
+                    <select id="district" name="district" class="get-info select-tab" style="max-width: 45%">
+                        <option value="">--Chọn Quận/Huyện--</option>
+                        <!-- Thêm các tùy chọn quận/huyện ở đây -->
+                    </select>
+                </div>
                 <textarea id="user_address" class="get-info textarea-field" name="address" type="text"
-                    placeholder="Nhập địa chỉ của bạn"></textarea>
+                    placeholder="Nhập địa chỉ cụ thể"></textarea>
                 <select name="productSelected" id="user_select" class="get-info select-tab">
                     <option value="" disabled selected hidden>Chọn loại sản phẩm</option>
                     <option value="BST: Yên">BST Yên - Nến thơm An Yên, Nhàn, Thiền</option>
@@ -41,9 +53,42 @@
                 </select>
                 <input id="product_quatity" class="get-info" name="productQuantity" type="number"
                     placeholder="Nhập số lượng"></input>
-                <input id="send-message-button" class="submit-button" type="submit"
-                    value="Đặt mua">
+                <input id="send-message-button" class="submit-button" type="submit" value="Đặt mua">
             </form>
         </div>
     </div>
 </section>
+<script>
+    const data = {
+        "Hà Nội": ["Ba Đình", "Hoàn Kiếm", "Tây Hồ", "Long Biên"],
+        "TP Hồ Chí Minh": ["Quận 1", "Quận 2", "Quận 3", "Quận 4", "Thủ Đức", "Tân Bình"]
+        // Thêm dữ liệu các tỉnh/thành phố và quận/huyện khác
+    };
+
+    function updateDistricts() {
+        const provinceSelect = document.getElementById("province");
+        const districtSelect = document.getElementById("district");
+        const selectedProvince = provinceSelect.value;
+
+        // Xóa các tùy chọn quận/huyện hiện tại
+        districtSelect.innerHTML = '<option value="">--Chọn Quận/Huyện--</option>';
+
+        if (selectedProvince && data[selectedProvince]) {
+            data[selectedProvince].forEach(district => {
+                const option = document.createElement("option");
+                option.value = district;
+                option.textContent = district;
+                districtSelect.appendChild(option);
+            });
+        }
+    }
+
+    // Thêm các tùy chọn tỉnh/thành phố vào thẻ select
+    const provinceSelect = document.getElementById("province");
+    Object.keys(data).forEach(province => {
+        const option = document.createElement("option");
+        option.value = province;
+        option.textContent = province;
+        provinceSelect.appendChild(option);
+    });
+</script>
